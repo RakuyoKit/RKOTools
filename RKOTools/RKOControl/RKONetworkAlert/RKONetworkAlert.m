@@ -7,7 +7,6 @@
 //
 
 #import "RKONetworkAlert.h"
-#import "UIViewController+RKOTopViewController.h"
 
 @implementation RKONetworkAlert
 

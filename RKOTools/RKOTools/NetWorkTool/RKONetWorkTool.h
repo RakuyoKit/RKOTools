@@ -34,8 +34,10 @@ UIKIT_EXTERN NSString * const diskPath;
 // 定义baseURL，请在您的ViewController.m中对该对象赋值。如：NSString * const baseURL = @"http://httpbin.org/";
 UIKIT_EXTERN NSString * const baseURL;
 
-NSString * const diskPath = @"WebCache";
-NSString * const baseURL = @"http://httpbin.org/";
+//#warning TODO
+// 下面这两行是为了上传到pods不出错才写的，您的项目中最好删除下面两行，将该字符串的定义写到您的文件中。
+//NSString * const diskPath = @"WebCache";
+//NSString * const baseURL = @"http://httpbin.org/";
 
 /**
  RKONetWorkToolDelegate 代理协议，用以提供设置无网络时候设置Alert的方法。

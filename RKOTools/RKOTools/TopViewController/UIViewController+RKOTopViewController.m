@@ -8,9 +8,6 @@
 
 #import "UIViewController+RKOTopViewController.h"
 
-/**
- 这个获取顶部视图的方法有问题。顶部视图如果是TabelView的话显示的不对。还需要再修改。
- */
 @implementation UIViewController (RKOTopViewController)
 
 + (UIViewController *)topViewController {
