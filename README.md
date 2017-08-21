@@ -11,16 +11,17 @@
 
 ## 目录
 
-1. [RKOControl](#RKOControl)
-    1. [RKONetworkAlert](#RKONetworkAlert)
-    2. [RKOCell](#RKOCell)
-    3. [RKOTabBar](#RKOTabBar)
-2. [RKOTools](#RKOTools)
-    1. [NetWorkTool](#NetWorkTool)
-    2. [CloseKeyBoard](#CloseKeyBoard)
-    3. [CollecionLog](#CollecionLog)
-    4. [TopViewController](#TopViewController)
-    5. [CALayer+Additions](#CALayer+Additions)
+1. [RKOControl](#rkocontrol)
+    1. [RKONetworkAlert](#rkonetworkalert)
+    2. [RKOCell](#rkocell)
+    3. [RKOTabBar](#rkotabbar)
+2. [RKOTools](#rkotools)
+    1. [NetWorkTool](#networktool)
+    2. [CloseKeyBoard](#closeKeyboard)
+    3. [CollecionLog](#collecionlog)
+    4. [TopViewController](#topViewcontroller)
+    5. [CALayer+Additions](#calayer+additions)
+3. [BLOG](#blog)
 
 ## RKOControl
 
@@ -105,20 +106,14 @@
 // 您可以按照需求随意修改下面的宏的值，也可以在您的.pch文件中重新定义下面的宏。使您的代码逻辑看起来更加易读。
 // 请注意不要重名。
 
-#ifndef MEMCAPA
 // 内存缓存大小。
 #define MEMCAPA 5
-#endif
 
-#ifndef DISKCAPA
 // 磁盘缓存大小。
 #define DISKCAPA MEMCAPA * 2
-#endif
 
-#ifndef TIMEOUT
 // 超时时长，默认15秒。
 #define TIMEOUT 15
-#endif
 
 // 缓存的文件夹名，请在您的ViewController.m中对该对象赋值。如：NSString * const diskPath = @"WebCache";
 UIKIT_EXTERN NSString * const diskPath;
@@ -126,7 +121,9 @@ UIKIT_EXTERN NSString * const diskPath;
 UIKIT_EXTERN NSString * const baseURL;
 ```
 
-提供7个方法，声明如下：
+- 注意：在`RKONetWorkTool.h`文件中，为了避免添加到CocoaPods不通过，对`diskPath`和`baseURL`进行了定义。在您使用的时候建议进行删除，将定义写在您的代码中。
+
+<br>`RKONetWorkTool`提供7个方法，声明如下：
 
 **POST方法：**
 ```objc
@@ -309,3 +306,9 @@ UIKIT_EXTERN NSString * const baseURL;
 ```
 
 使用时在`StroyBoard`中添加`borderUIColor`属性即可设置边框颜色。
+
+## BLOG
+
+本人课余时间利用`HEXO`在GitHub上搭建的博客。未来部分工具会有对应的blog文章对应。在这里也把blog的地址贴出来吧：
+
+[喵喵喵](https://rakuyomo.github.io)
