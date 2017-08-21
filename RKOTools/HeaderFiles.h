@@ -9,8 +9,8 @@
 #ifndef HeaderFiles_h
 #define HeaderFiles_h
 
-#import <AFNetworking.h>
-#import <AFNetworkReachabilityManager.h>
-#import <AFNetworkActivityIndicatorManager.h>
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 #endif /* HeaderFiles_h */
