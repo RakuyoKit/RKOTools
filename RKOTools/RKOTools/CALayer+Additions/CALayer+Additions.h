@@ -11,7 +11,6 @@
 
 @interface CALayer (Additions)
 
-#warning - This position doesn't seem to fit well with "weak".
-@property (nonatomic, weak)UIColor *borderUIColor;
+@property (nonatomic, strong)UIColor *borderUIColor;
 
 @end
