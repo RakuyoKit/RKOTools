@@ -15,12 +15,12 @@
     1. [RKONetworkAlert](#rkonetworkalert)
     2. [RKOCell](#rkocell)
     3. [RKOTabBar](#rkotabbar)
-2. [RKOTools](#rkotools)
+2. [RKOTools](#rkotools-1)
     1. [NetWorkTool](#networktool)
-    2. [CloseKeyBoard](#closeKeyboard)
+    2. [CloseKeyBoard](#closekeyboard)
     3. [CollecionLog](#collecionlog)
-    4. [TopViewController](#topViewcontroller)
-    5. [CALayer+Additions](#calayer+additions)
+    4. [TopViewController](#topviewcontroller)
+    5. [CALayer+Additions](#calayeradditions)
 3. [BLOG](#blog)
 
 ## RKOControl
@@ -272,7 +272,7 @@ UIKIT_EXTERN NSString * const baseURL;
 ### CloseKeyBoard
 
 `UITableView`的分类，点击空白处关闭键盘的小工具。在需要的地方引入头文件即可
-<br>转载自简书：<br>
+<br><br>转载自简书：<br>
 [iOS利用响应链机制点击tableview空白处关闭键盘](http://www.jianshu.com/p/9717b792599c)**评论中**的**鱼鱼鱼四只鱼**提供的代码。
 
 ### CollecionLog
