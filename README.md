@@ -3,7 +3,7 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.0.5-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.6-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -21,6 +21,7 @@
     3. [CollecionLog](#collecionlog)
     4. [TopViewController](#topviewcontroller)
     5. [CALayer+Additions](#calayeradditions)
+    6. [FastFrame](#fastframe)
 3. [BLOG](#blog)
 
 ## RKOControl
@@ -90,7 +91,7 @@
 
 ### RKOTabBar
 
-封装的一个`TabBar`，但是效果并是很好....并不准备继续完善了。
+封装的一个`TabBar`，但是效果并是很好....想了想还是不放在这里了，几乎用不到，每次都要删除怪麻烦的。
 
 ## RKOTools
 
@@ -306,6 +307,36 @@ UIKIT_EXTERN NSString * const baseURL;
 ```
 
 使用时在`StroyBoard`中添加`borderUIColor`属性即可设置边框颜色。
+
+### FastFrame
+
+`UIView`的分类，在接口中定义了设置`Frame`的几个属性，方便我们快速设置`Frame`。
+<br><br>
+接口如下：
+
+```objc
+@interface UIView (FastFrame)
+
+#pragma mark - 上下左右间距
+@property (assign, nonatomic) CGFloat top;
+@property (assign, nonatomic) CGFloat bottom;
+@property (assign, nonatomic) CGFloat left;
+@property (assign, nonatomic) CGFloat right;
+
+#pragma mark - 坐标
+@property (assign, nonatomic) CGFloat x;
+@property (assign, nonatomic) CGFloat y;
+@property (assign, nonatomic) CGPoint origin;
+@property (assign, nonatomic) CGFloat centerX;
+@property (assign, nonatomic) CGFloat centerY;
+
+#pragma mark - 尺寸
+@property (assign, nonatomic) CGSize  size;
+@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic) CGFloat height;
+
+@end
+```
 
 ## BLOG
 
