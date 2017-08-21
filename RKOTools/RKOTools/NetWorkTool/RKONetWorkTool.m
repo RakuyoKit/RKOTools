@@ -7,9 +7,9 @@
 //
 
 #import "RKONetWorkTool.h"
-#import <AFNetworking.h>
-#import <AFNetworkReachabilityManager.h>
-#import <AFNetworkActivityIndicatorManager.h>
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkReachabilityManager.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 typedef NS_ENUM(NSUInteger, RKOURLError) {
     RKOURLErrorEmptyURL     = -10000,
