@@ -3,7 +3,7 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.0.3-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.5-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -309,6 +309,5 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ## BLOG
 
-本人课余时间利用`HEXO`在GitHub上搭建的博客。未来部分工具会有对应的blog文章对应。在这里也把blog的地址贴出来吧：
-
-[喵喵喵](https://rakuyomo.github.io)
+本人课余时间利用`HEXO`在GitHub上搭建的博客。未来部分工具会有对应的blog文章对应。在这里也把blog的地址贴出来吧：<br><br>
+<a href="https://rakuyomo.github.io" target="_blank">喵喵喵</a>
