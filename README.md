@@ -3,7 +3,7 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.0.6-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.7-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -14,7 +14,7 @@
 1. [RKOControl](#rkocontrol)
     1. [RKONetworkAlert](#rkonetworkalert)
     2. [RKOCell](#rkocell)
-    3. [RKOTabBar](#rkotabbar)
+    3. [~~RKOTabBar~~](#rkotabbar)
 2. [RKOTools](#rkotools-1)
     1. [NetWorkTool](#networktool)
     2. [CloseKeyBoard](#closekeyboard)
