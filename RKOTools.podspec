@@ -47,33 +47,33 @@ Pod::Spec.new do |s|
 
   	helper.subspec 'CALayer+Additions' do |additions|
 
-  		additions.source_files  = "RKOTools/RKOTools/CALayer+Additions/*.{h,m}"
+  		additions.source_files  = "RKOTools/RKOHelper/CALayer+Additions/*.{h,m}"
   	end
 
   	helper.subspec 'CloseKeyBoard' do |closeKeyBoard|
 
-  		closeKeyBoard.source_files  = "RKOTools/RKOTools/CloseKeyBoard/*.{h,m}"
+  		closeKeyBoard.source_files  = "RKOTools/RKOHelper/CloseKeyBoard/*.{h,m}"
   	end
 
   	helper.subspec 'CollecionLog' do |collec􏰂ionLog|
 
-  		collec􏰂ionLog.source_files  = "RKOTools/RKOTools/CollecionLog/*.{h,m}"
+  		collec􏰂ionLog.source_files  = "RKOTools/RKOHelper/CollecionLog/*.{h,m}"
   	end
 
   	helper.subspec 'FastFrame' do |fastFrame|
 
-  		fastFrame.source_files  = "RKOTools/RKOTools/FastFrame/*.{h,m}"
+  		fastFrame.source_files  = "RKOTools/RKOHelper/FastFrame/*.{h,m}"
   	end
 
   	helper.subspec 'NetWorkTool' do |netWorkTool|
 
-  		netWorkTool.source_files  = "RKOTools/RKOTools/NetWorkTool/*.{h,m}"
+  		netWorkTool.source_files  = "RKOTools/RKOHelper/NetWorkTool/*.{h,m}"
   		netWorkTool.dependency "AFNetworking", '~> 3.0'
   	end
 
   	helper.subspec 'TopViewController' do |topViewController|
 
-  		topViewController.source_files  = "RKOTools/RKOTools/TopViewController/*.{h,m}"
+  		topViewController.source_files  = "RKOTools/RKOHelper/TopViewController/*.{h,m}"
   	end
 
   end
