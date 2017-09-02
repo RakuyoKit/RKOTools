@@ -3,7 +3,7 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.2.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.2.1-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -112,7 +112,7 @@
 ```objc
 [self.textView textViewStyleWithplaceholder:@"请输入待办内容..." maxLimitNumber:40 maxNumberOfLines:3 clearBtnMode:RKOTextFieldViewModeWhileEditing];
     
-    [self.textView alertViewStyleWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] backgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
+[self.textView alertViewStyleWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] backgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
 ```
 
 #### 接口
