@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.1.0"
+  s.version      = "1.2.0"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "Rakuyo" => "rakuyo.mo@gmail.com" }
 
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "8.0"
 
   s.source       = { :git => "https://github.com/rakuyoMo/RKOTools.git", :tag => "#{s.version}" }
 
@@ -39,6 +39,15 @@ Pod::Spec.new do |s|
 
   		networkAlert.source_files  = "RKOTools/RKOControl/RKONetworkAlert/*.{h,m}"
   	end
+
+    control.subspec 'RKOTextView' do |textView|
+
+      textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
+
+      textView.subspec 'ClearBtnImg' do |clearBtnImg|
+        clearBtnImg.source_files = "RKOTools/RKOControl/RKOTextView/ClearBtnImg/*.png"
+      end
+    end
 
   end
 
@@ -58,11 +67,6 @@ Pod::Spec.new do |s|
   	helper.subspec 'CollecionLog' do |collec􏰂ionLog|
 
   		collec􏰂ionLog.source_files  = "RKOTools/RKOHelper/CollecionLog/*.{h,m}"
-  	end
-
-  	helper.subspec 'FastFrame' do |fastFrame|
-
-  		fastFrame.source_files  = "RKOTools/RKOHelper/FastFrame/*.{h,m}"
   	end
 
   	helper.subspec 'NetWorkTool' do |netWorkTool|

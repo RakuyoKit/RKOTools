@@ -3,9 +3,9 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.1.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.2.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
-<a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 </p>
 
@@ -14,14 +14,15 @@
 1. [RKOControl](#rkocontrol)
     1. [RKONetworkAlert](#rkonetworkalert)
     2. [RKOCell](#rkocell)
-    3. [~~RKOTabBar~~](#rkotabbar)
+    3. [RKOTextView](#rkotextview) 
+    4. [~~RKOTabBar~~](#rkotabbar)
 2. [RKOTools](#rkotools-1)
     1. [NetWorkTool](#networktool)
     2. [CloseKeyBoard](#closekeyboard)
     3. [CollecionLog](#collecionlog)
     4. [TopViewController](#topviewcontroller)
     5. [CALayer+Additions](#calayeradditions)
-    6. [FastFrame](#fastframe)
+    6. [~~FastFrame~~](#fastframe)
 3. [BLOG](#blog)
 
 ## RKOControl
@@ -87,6 +88,92 @@
 + (id)blankCell:(UITableView *)tableView;
 
 @end
+```
+### RKOTextView
+
+一个**近乎完美**的`UITextView`封装~~（肯定还有会有一些bug）~~
+
+提供以下功能，几乎涵盖目前市面上的基本需求：
+ 1. 兼容`stroyboard/xib`以及纯代码。
+ 2. 根据内容自适应高度。
+ 3. 自定义占位符文字。
+ 4. 可以限制`TextView`显示的最大行数，在达到最大行数后滚动显示。
+ 5. 可以设置限制最大输入长度，并在达到最大字数时从顶部向下弹出提示窗，可设置提示文字、文字颜色及背景色。（如果该页面没有`NavigationBar`，则默认和`NavigationBar`同高）
+ 6. 在右侧提供一个清除按钮，可以设置显示时机，始终对于`TextView`垂直居中。
+ 7. 设置文字颜色和背景色的方法和原生`UITextView`没有区别。
+
+未来预计实现的功能如下：
+1. 限制输入的范围。
+
+#### 使用
+
+**基本使用方法如下所示：**
+
+```objc
+[self.textView textViewStyleWithplaceholder:@"请输入待办内容..." maxLimitNumber:40 maxNumberOfLines:3 clearBtnMode:RKOTextFieldViewModeWhileEditing];
+    
+    [self.textView alertViewStyleWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] backgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
+```
+
+#### 接口
+
+**提供如下几个便利的构造方法，以及样式设置方法**
+
+```objc
+/**
+ 提供以下几个便捷方法，快速创建对象并设置其样式。
+ 
+ @param frame 视图大小及位置
+ @param placeholder 占位符文字
+ @param maxLimitNumber 最大的限制字数
+ @param maxNumberOfLines 最大的限制行数
+ @param clearBtnMode 清除按钮的样式
+ @return RKOTextView
+ */
++ (RKOTextView *)textViewWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber maxNumberOfLines:(NSInteger)maxNumberOfLines clearBtnMode:(RKOTextFieldViewMode)clearBtnMode;
+- (instancetype)initWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber;
+- (instancetype)initWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber clearBtnMode:(RKOTextFieldViewMode)clearBtnMode;
+
+- (void)textViewStyleWithplaceholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber maxNumberOfLines:(NSInteger)maxNumberOfLines clearBtnMode:(RKOTextFieldViewMode)clearBtnMode;
+
+/**
+ 设置提示窗的样式
+
+ @param text 提示窗显示文字，不能为NULL。为空则设置无效。
+ @param textColor 文字颜色
+ @param backgroundColor 提示窗背景颜色
+ */
+- (void)alertViewStyleWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor;
+```
+
+其还暴露一些属性，方便单独设置：
+
+```objc
+/** 占位符文字。 */
+@property(nonatomic,copy) NSString *myPlaceholder;
+
+/** 限定输入的字符数。
+ 
+ 注意：该属性优先于最大行数，即在达到最大字数却没有达到最大行数的情况下，无法继续输入。 */
+@property (nonatomic, assign) NSInteger maxLimitNums;
+
+/** TextView显示的最大行数。 */
+@property (nonatomic, assign) NSUInteger maxNumberOfLines;
+
+/** 清除按钮的显示时机 */
+@property (nonatomic) RKOTextFieldViewMode clearBtnMode;
+```
+
+清除按钮的显示时机参照`UITextField`设计：
+
+```objc
+/** 定义ClearButton显示的时机 */
+typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
+    RKOTextFieldViewModeNever = 0,
+    RKOTextFieldViewModeWhileEditing,
+    RKOTextFieldViewModeUnlessEditing,
+    RKOTextFieldViewModeAlways
+};
 ```
 
 ### RKOTabBar
@@ -310,33 +397,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### FastFrame
 
-`UIView`的分类，在接口中定义了设置`Frame`的几个属性，方便我们快速设置`Frame`。
-<br><br>
-接口如下：
-
-```objc
-@interface UIView (FastFrame)
-
-#pragma mark - 上下左右间距
-@property (assign, nonatomic) CGFloat top;
-@property (assign, nonatomic) CGFloat bottom;
-@property (assign, nonatomic) CGFloat left;
-@property (assign, nonatomic) CGFloat right;
-
-#pragma mark - 坐标
-@property (assign, nonatomic) CGFloat x;
-@property (assign, nonatomic) CGFloat y;
-@property (assign, nonatomic) CGPoint origin;
-@property (assign, nonatomic) CGFloat centerX;
-@property (assign, nonatomic) CGFloat centerY;
-
-#pragma mark - 尺寸
-@property (assign, nonatomic) CGSize  size;
-@property (assign, nonatomic) CGFloat width;
-@property (assign, nonatomic) CGFloat height;
-
-@end
-```
+**因其与**`Masonry`**冲突，故从库中删除**。如果您有需要，可查找`1.1.0`版本的历史记录，查看相关代码与记录在`README`文件中的API说明。
 
 ## BLOG
 

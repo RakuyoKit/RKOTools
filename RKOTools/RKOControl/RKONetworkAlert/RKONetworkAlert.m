@@ -45,7 +45,7 @@
 // 添加Alert视图，并弹出视图。
 - (void)displayAlert {
     
-    UIView *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIWindow *keyWindow = [[[UIApplication sharedApplication].delegate.window;
     
     // 判断alert是否存在，存在的话则直接跳出。
     if (self.superview && (self.superview == keyWindow)) {
