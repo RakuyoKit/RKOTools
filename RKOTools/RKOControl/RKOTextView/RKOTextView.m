@@ -206,6 +206,9 @@
     if (self.isLimitInputRange && self.maxNumberOfLines) {
         [self limitInputRangeWithTextView:textView];
     }
+    
+    // 调用外界设置的代理内容
+    [self.textViewDelegate textViewDidChange:textView];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -435,9 +438,15 @@
     
     // 创建一个自定义btn
     self.clearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-
+    
+// 图片路径
+// 为通过copy文件夹方式获取图片路径的宏
+#define kZLPhotoBrowserSrcName(file) [@"ClearBtnImg.bundle" stringByAppendingPathComponent:file]
+// 为通过cocoapods下载安装获取图片路径的宏
+#define kZLPhotoBrowserFrameworkSrcName(file) [@"Frameworks/RKOTools.framework/ClearBtnImg.bundle" stringByAppendingPathComponent:file]
+    
     // 设置图片
-    UIImage *img = [UIImage imageNamed:@"clear_btn_RKOTextView.png"];
+    UIImage *img = [UIImage imageNamed:kZLPhotoBrowserSrcName(@"clear_btn_RKOTextView.png")]?:[UIImage imageNamed:kZLPhotoBrowserFrameworkSrcName(@"clear_btn_RKOTextView.png")];
     self.imgSize = img.size;
     [self.clearBtn setImage:img forState:UIControlStateNormal];
     

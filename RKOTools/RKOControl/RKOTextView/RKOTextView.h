@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RKOTextView;
 
 /**
  自定义UITextView类，适配纯代码及xib、storyboard。
@@ -18,11 +19,16 @@
  2. 自定义占位符文字。
  3. 可以限制TextView显示的最大行数，在达到最大行数后滚动显示。
  4. 可以设置限制最大输入长度，并在达到最大字数时从顶部向下弹出提示窗，可设置提示文字、文字颜色及背景色。（默认和Navigation同高）
- 5. 在右侧提供一个垂直居中的清除按钮，可以显示时机，始终对于TextView垂直居中。
+ 5. 在右侧提供一个清除按钮，可以设置显示时机，始终对于TextView垂直居中。
  
  还未实现的功能：
  1. 限制输入的范围
  */
+
+
+@protocol RKOTextViewDelegate <NSObject>
+- (void)textViewDidChange:(UITextView *)textView;
+@end
 
 @interface RKOTextView : UITextView
 
@@ -75,7 +81,8 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
 /** 清除按钮的显示时机 */
 @property (nonatomic) RKOTextFieldViewMode clearBtnMode;
 
-
+/** 代理 */
+@property (nonatomic, weak) id<RKOTextViewDelegate> textViewDelegate;
 
 
 /** 警告：该属性目前尚未完全完成，不建议一般开发者使用。如果你有更好的想法，欢迎通过issus联系我。 */
