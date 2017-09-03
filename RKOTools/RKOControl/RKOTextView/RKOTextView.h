@@ -25,7 +25,6 @@
  1. 限制输入的范围
  */
 
-
 @protocol RKOTextViewDelegate <NSObject>
 
 @optional
@@ -46,6 +45,7 @@
  如果您需要当达到最大范围时弹出提示窗，请将弹出提示窗的代码写在该方法中
  */
 - (void)textViewPopAlertWhenMaxRange:(UITextView *)textView;
+
 @end
 
 @interface RKOTextView : UITextView

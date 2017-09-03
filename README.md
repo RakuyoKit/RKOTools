@@ -3,7 +3,7 @@
 自己平时写的一个小工具库，上传到GitHub中且支持CocoaPods，方便自己使用。不断更新完善中。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.3.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.3.1-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -216,8 +216,7 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
 在需要弹出该提示窗的地方调用下面的方法
 
 ```objc
-// 设置弹窗
-[RKOTopAlert popAlertViewWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] ackgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
+[RKOTopAlert popAlertViewWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] ackgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00] duration:2.5];
 ```
 
 #### 接口
@@ -227,12 +226,13 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
 ```objc
 /**
  设置提示窗的样式
- 
- @param text 提示窗显示文字，不能为NULL。为空则设置无效。
+
+ @param text 提示窗显示文字，不能为nil。为空则设置无效。
  @param textColor 文字颜色
  @param backgroundColor 提示窗背景颜色
+ @param duration 横幅持续显示的时间
  */
-+ (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor;
++ (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor duration:(CGFloat)duration;
 ```
 
 ---------------------------------------------------------------------

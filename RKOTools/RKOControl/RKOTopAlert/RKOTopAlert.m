@@ -47,7 +47,7 @@ struct {
 }
 
 // 弹出提示窗
-+ (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor {
++ (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor duration:(CGFloat)duration{
     
     // 判断alert是否存在，及是否设置了提示文字
     if (!text || [self sharedManager].superview ) {
@@ -63,8 +63,8 @@ struct {
     // 设置显示文字。
     UILabel *alertLabel = [[UILabel alloc] init];
     alertLabel.text = text;
-    alertLabel.font = [UIFont boldSystemFontOfSize:20];
     alertLabel.textColor = textColor;
+    alertLabel.font = [UIFont boldSystemFontOfSize:20];
     alertLabel.backgroundColor = [UIColor clearColor];
     
     // 水平居中
@@ -86,8 +86,8 @@ struct {
         topAlert.frame = alertFrame;
     } completion:^(BOOL finished) { // 显示动画完成
         
-        // 3秒后横幅自动消失
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // duration秒后横幅自动消失
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             //移除横幅动画,设置完全透明并从父视图中移除
             [UIView animateWithDuration:0.5f
@@ -97,6 +97,9 @@ struct {
                                  topAlert.frame = alertFrame;
                              }
                              completion:^(BOOL finished) {
+                                 alertLabel.text = nil;
+                                 alertLabel.textColor = nil;
+                                 topAlert.backgroundColor = nil;
                                  // 从父视图中移除。
                                  [topAlert removeFromSuperview];
                              }];

@@ -295,7 +295,9 @@
         self.text = [self.text substringToIndex:self.text.length - 1];
         
         // 显示提示窗
-        [self.textViewDelegate textViewPopAlertWhenMaxRange:textView];
+        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewPopAlertWhenMaxRange:)]) {
+            [self.textViewDelegate textViewPopAlertWhenMaxRange:textView];
+        }
     }
     
     //    // 限制输入范围，当输入到最后的时候，无法继续输入
@@ -332,7 +334,7 @@
         [textView setText:s];
         
         // 显示提示窗，提示字数限制
-        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewPopAlertWhenMaxNumber:)]) {
             [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
         }
         
@@ -360,7 +362,7 @@
             return YES;
         } else {
             // 显示提示窗，提示字数限制
-            if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+            if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewPopAlertWhenMaxNumber:)]) {
                 [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
             }
             return NO;
@@ -400,6 +402,10 @@
                                           if (idx >= rg.length) {
                                               // 取出所需要就break，提高效率
                                               *stop = YES;
+                                              // 显示提示窗，提示字数限制
+                                              if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewPopAlertWhenMaxNumber:)]) {
+                                                  [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
+                                              }
                                               return ;
                                           }
                                           
@@ -419,7 +425,7 @@
         // 判断子视图是否显示，以及适配高度
         [self judgmentSubviewsDisplayed:textView];
         // 显示提示窗，提示字数限制
-        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewPopAlertWhenMaxNumber:)]) {
             [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
         }
         return NO;
