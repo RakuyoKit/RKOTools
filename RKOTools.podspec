@@ -44,11 +44,11 @@ Pod::Spec.new do |s|
 
       textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
       textView.resources = "RKOTools/RKOControl/RKOTextView/*.{png,xib,nib,bundle}"
-
     end
 
     control.subspec 'RKOTopAlert' do |topAlert|
-      textView.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
+
+      topAlert.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
     end
 
   end
