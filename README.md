@@ -232,7 +232,10 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
  @param backgroundColor 提示窗背景颜色
  @param duration 横幅持续显示的时间
  */
-+ (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor duration:(CGFloat)duration;
++ (void)popAlertViewWithText:(NSString *)text
+                   textColor:(UIColor *)textColor
+              ackgroundColor:(UIColor *)backgroundColor
+                    duration:(CGFloat)duration;
 ```
 
 ---------------------------------------------------------------------
