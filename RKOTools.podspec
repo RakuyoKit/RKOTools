@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.2.2"
+  s.version      = "1.3.0"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -45,6 +45,10 @@ Pod::Spec.new do |s|
       textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
       textView.resources = "RKOTools/RKOControl/RKOTextView/*.{png,xib,nib,bundle}"
 
+    end
+
+    control.subspec 'RKOTopAlert' do |topAlert|
+      textView.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
     end
 
   end

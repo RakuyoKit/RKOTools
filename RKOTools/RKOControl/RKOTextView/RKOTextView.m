@@ -25,11 +25,6 @@
 // TextView的最大高度。
 @property (nonatomic, assign) NSInteger maxTextH;
 
-// 提示窗的样式。
-@property (nonatomic, copy) NSString *alertText;
-@property (nonatomic, strong) UIColor *alertTextColor;
-@property (nonatomic, strong) UIColor *alertBackgroundColor;
-
 @end
 
 @implementation RKOTextView
@@ -50,13 +45,13 @@
 - (instancetype)initWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber {
     
     self = [self initWithFrame:frame placeholder:placeholder maxLimitNumber:maxLimitNumber clearBtnMode:0];
-
+    
     return self;
 }
 
 // 快捷方法，创建对象并设置属性。
 + (RKOTextView *)textViewWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber maxNumberOfLines:(NSInteger)maxNumberOfLines clearBtnMode:(RKOTextFieldViewMode)clearBtnMode {
-
+    
     RKOTextView *textView = [[self alloc] initWithFrame:frame];
     
     textView.myPlaceholder = placeholder;
@@ -72,7 +67,7 @@
 
 // 当使用的代码初始化该控件的时候。
 - (instancetype)initWithFrame:(CGRect)frame {
-
+    
     if(self = [super initWithFrame:frame]) {
         [self setUp];
     }
@@ -81,7 +76,7 @@
 
 // 当从storyboard/xib中初始化该控件的时候
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
-
+    
     if (!(self = [super initWithCoder:aDecoder])) return nil;
     
     [self setUp];
@@ -100,7 +95,7 @@
     selfEdgeInsets.left = PADDING;
     selfEdgeInsets.right = self.clearBtn.frame.origin.x + PADDING * 8;
     self.textContainerInset = selfEdgeInsets;
-
+    
     // 禁止滚动。
     self.scrollEnabled = NO;
     self.scrollsToTop = NO;
@@ -113,11 +108,11 @@
 
 // 懒加载清除按钮
 //- (UIButton *)clearBtn {
-//    
+//
 //    if (!_clearBtn && _clearBtnMode != RKOTextFieldViewModeNever) {
 //        // 初始化清除按钮。
 //        NSLog(@"2");
-//        
+//
 //    }
 //    return _clearBtn;
 //}
@@ -150,17 +145,17 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-
+    
     // 在开始编辑的时候.
     switch (self.clearBtnMode) {
-        // 如果ClearButton的类型是RKOTextFieldViewModeWhileEditing，则显示清除按钮。
+            // 如果ClearButton的类型是RKOTextFieldViewModeWhileEditing，则显示清除按钮。
         case RKOTextFieldViewModeWhileEditing:
             if (self.text.length != 0) {
                 self.clearBtn.hidden = NO;
             }
             break;
             
-        // 如果ClearButton的类型是RKOTextFieldViewModeUnlessEditing，则隐藏清除按钮。
+            // 如果ClearButton的类型是RKOTextFieldViewModeUnlessEditing，则隐藏清除按钮。
         case RKOTextFieldViewModeUnlessEditing:
             self.clearBtn.hidden = YES;
             break;
@@ -173,7 +168,7 @@
     
     // 在编辑结束的时候
     switch (self.clearBtnMode) {
-        // 如果ClearButton的类型是RKOTextFieldViewModeUnlessEditing，则在输入结束的时候显示。
+            // 如果ClearButton的类型是RKOTextFieldViewModeUnlessEditing，则在输入结束的时候显示。
         case RKOTextFieldViewModeUnlessEditing:
             if (self.text.length != 0) {
                 self.clearBtn.hidden = NO;
@@ -181,7 +176,7 @@
                 [[UIApplication sharedApplication].delegate.window bringSubviewToFront:self.clearBtn];
             }
             break;
-        // 如果ClearButton的类型是RKOTextFieldViewModeWhileEditing，则在结束输入的时候隐藏。
+            // 如果ClearButton的类型是RKOTextFieldViewModeWhileEditing，则在结束输入的时候隐藏。
         case RKOTextFieldViewModeWhileEditing:
             self.clearBtn.hidden = YES;
             break;
@@ -207,8 +202,10 @@
         [self limitInputRangeWithTextView:textView];
     }
     
-    // 调用外界设置的代理内容
-    [self.textViewDelegate textViewDidChange:textView];
+    // 提供代理，供用户监听输入
+    if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+        [self.textViewDelegate textViewDidChange:textView];
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -226,7 +223,7 @@
 #pragma mark 样式
 // 设置样式。
 - (void)textViewStyleWithplaceholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber maxNumberOfLines:(NSInteger)maxNumberOfLines clearBtnMode:(RKOTextFieldViewMode)clearBtnMode {
-
+    
     self.myPlaceholder = placeholder;
     self.maxLimitNums = maxLimitNumber;
     self.maxNumberOfLines = maxNumberOfLines;
@@ -235,7 +232,7 @@
 
 // 判断子视图是否显示
 - (void)judgmentSubviewsDisplayed:(UITextView *)textView {
-
+    
     // 当编辑时隐藏占位符
     self.placeholderLabel.hidden = self.hasText;
     
@@ -296,9 +293,9 @@
     if (self.frame.size.height == self.maxTextH && [[self.text substringFromIndex:self.text.length - 1]  isEqual: @"\n"]) {
         // 等用户已经输入三行，再按回车的时候，取消该回车。并提醒不能输入回车。
         self.text = [self.text substringToIndex:self.text.length - 1];
-    
+        
         // 显示提示窗
-        [self popAlertViewWithText:@"不能增加新行了呦" backgroundColor:self.alertBackgroundColor textColor:self.alertTextColor];
+        [self.textViewDelegate textViewPopAlertWhenMaxRange:textView];
     }
     
     //    // 限制输入范围，当输入到最后的时候，无法继续输入
@@ -335,7 +332,10 @@
         [textView setText:s];
         
         // 显示提示窗，提示字数限制
-        [self popAlertViewWithText:self.alertText backgroundColor:self.alertBackgroundColor textColor:self.alertTextColor];
+        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+            [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
+        }
+        
     }
     // 不让显示负数 口口日
     // self.lbNums.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
@@ -360,7 +360,9 @@
             return YES;
         } else {
             // 显示提示窗，提示字数限制
-            [self popAlertViewWithText:self.alertText backgroundColor:self.alertBackgroundColor textColor:self.alertTextColor];
+            if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+                [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
+            }
             return NO;
         }
     }
@@ -417,7 +419,9 @@
         // 判断子视图是否显示，以及适配高度
         [self judgmentSubviewsDisplayed:textView];
         // 显示提示窗，提示字数限制
-        [self popAlertViewWithText:self.alertText backgroundColor:self.alertBackgroundColor textColor:self.alertTextColor];
+        if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+            [self.textViewDelegate textViewPopAlertWhenMaxNumber:textView];
+        }
         return NO;
     }
 }
@@ -439,10 +443,10 @@
     // 创建一个自定义btn
     self.clearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-// 图片路径
-// 为通过copy文件夹方式获取图片路径的宏
+    // 图片路径
+    // 为通过copy文件夹方式获取图片路径的宏
 #define kZLPhotoBrowserSrcName(file) [@"ClearBtnImg.bundle" stringByAppendingPathComponent:file]
-// 为通过cocoapods下载安装获取图片路径的宏
+    // 为通过cocoapods下载安装获取图片路径的宏
 #define kZLPhotoBrowserFrameworkSrcName(file) [@"Frameworks/RKOTools.framework/ClearBtnImg.bundle" stringByAppendingPathComponent:file]
     
     // 设置图片
@@ -455,7 +459,7 @@
     
     // 将清除按钮添加到根视图，防止随着内容一起滚动。
     [[UIApplication sharedApplication].delegate.window addSubview:self.clearBtn];
-
+    
     // 添加点击事件，清空输入内容
     [self.clearBtn addTarget:self action:@selector(clearTextViewContent) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -473,12 +477,37 @@
 }
 
 - (void)layoutClearButton {
- 
+    
     // 设置frame，始终对于TextView的垂直居中。
+    CGPoint point = self.frame.origin;
+    
     CGFloat btnX = self.frame.size.width - self.imgSize.width - PADDING * 1.5;
     CGFloat btnY = (self.contentSize.height - self.imgSize.height) * 0.5;
     
-    CGPoint point = self.frame.origin;
+    UIViewController *vc = [[UIApplication sharedApplication].keyWindow rootViewController];
+    UINavigationController *naviVC = nil;
+    if ([vc isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarVC = (UITabBarController *)vc;
+        
+        if ([[tabBarVC selectedViewController] isKindOfClass:[UINavigationController class]]) {
+            naviVC = [tabBarVC selectedViewController];
+        }
+        
+    } else if ([vc isKindOfClass:[UINavigationController class]]){
+        naviVC = (UINavigationController *)[[UIApplication sharedApplication].keyWindow rootViewController];
+    }
+    
+    if (naviVC) {
+        // Navigation的高度
+        CGFloat navigationH = naviVC.navigationBar.frame.size.height;
+        
+        // 状态栏的高度
+        CGFloat statusbarH = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        
+        CGFloat alertViewH = navigationH + statusbarH;
+        
+        btnY += alertViewH;
+    }
     
     self.clearBtn.frame = CGRectMake(btnX + point.x, btnY + point.y, self.imgSize.width, self.imgSize.height);
 }
@@ -541,84 +570,6 @@
     
     //重新计算子控件frame
     [self setNeedsLayout];
-}
-
-#pragma mark - 提示窗
-// 设置提示窗的样式。
-- (void)alertViewStyleWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor {
-    self.alertText = text;
-    self.alertTextColor = textColor;
-    self.alertBackgroundColor = backgroundColor;
-}
-
-// 弹出提示窗
-- (void)popAlertViewWithText:(NSString *)text backgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textColor {
-    
-    if (!self.alertText) {
-        return;
-    }
-
-    // 判断是否加入到Navigation中
-    UINavigationController *vc;
-    if (![[[UIApplication sharedApplication].keyWindow rootViewController] isKindOfClass:[UINavigationController class]]) {
-        vc = [[UINavigationController alloc] init];
-    } else {
-        vc = (UINavigationController *)[[UIApplication sharedApplication].keyWindow rootViewController];
-    }
-    
-    // Navigation的高度
-    CGFloat navigationH = vc.navigationBar.frame.size.height;
-    
-    // 状态栏的高度
-    CGFloat statusbarH = [[UIApplication sharedApplication] statusBarFrame].size.height;
-    
-    CGFloat alertViewH = navigationH + statusbarH;
-    
-    // 初始化提示窗，并设置Frame
-    UIView *alertView = [[UIView alloc] initWithFrame:CGRectMake(0, -alertViewH, vc.navigationBar.frame.size.width, alertViewH)];
-    
-    // 设置背景颜色。
-    alertView.backgroundColor = backgroundColor;
-    
-    // 设置显示文字。
-    UILabel *alertLabel = [[UILabel alloc] init];
-    alertLabel.text = text;
-    alertLabel.font = [UIFont boldSystemFontOfSize:20];
-    alertLabel.textColor = textColor;
-    alertLabel.backgroundColor = [UIColor clearColor];
-    // 水平居中
-    alertLabel.textAlignment = NSTextAlignmentCenter;
-    alertLabel.frame = CGRectMake(0, statusbarH, alertView.frame.size.width, navigationH);
-    
-    // 添加视图
-    [alertView addSubview:alertLabel];
-    [[UIApplication sharedApplication].delegate.window addSubview:alertView];
-    // 显示到最上层。
-    [[UIApplication sharedApplication].delegate.window bringSubviewToFront:alertView];
-    
-    __block CGRect alertFrame = alertView.frame;
-    [UIView animateWithDuration:0.4f animations:^{
-        // 向下移动，显示提示窗。
-        alertFrame.origin.y = 0;
-        alertView.frame = alertFrame;
-    } completion:^(BOOL finished) { // 显示动画完成
-        
-        // 3秒后横幅自动消失
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            //移除横幅动画,设置完全透明并从父视图中移除
-            [UIView animateWithDuration:0.5f
-                             animations:^{
-                                 // 向上移动消失。
-                                 alertFrame.origin.y = -alertViewH;
-                                 alertView.frame = alertFrame;
-                             }
-                             completion:^(BOOL finished) {
-                                 // 从父视图中移除。
-                                 [alertView removeFromSuperview];
-                             }];
-        });
-    }];
 }
 
 @end

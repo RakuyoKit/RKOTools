@@ -27,7 +27,25 @@
 
 
 @protocol RKOTextViewDelegate <NSObject>
+
+@optional
+/**
+ 如果您需要监听输入，请实现该方法。
+ */
 - (void)textViewDidChange:(UITextView *)textView;
+
+/**
+ 如果您需要当达到最大字数时弹出提示窗，请将弹出提示窗的代码写在该方法中
+ */
+- (void)textViewPopAlertWhenMaxNumber:(UITextView *)textView;
+
+
+/**
+ 该功能还未完全实现，请不要使用该方法。
+ 
+ 如果您需要当达到最大范围时弹出提示窗，请将弹出提示窗的代码写在该方法中
+ */
+- (void)textViewPopAlertWhenMaxRange:(UITextView *)textView;
 @end
 
 @interface RKOTextView : UITextView
@@ -55,15 +73,6 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
 - (instancetype)initWithFrame:(CGRect)frame placeholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber clearBtnMode:(RKOTextFieldViewMode)clearBtnMode;
 
 - (void)textViewStyleWithplaceholder:(NSString *)placeholder maxLimitNumber:(NSInteger)maxLimitNumber maxNumberOfLines:(NSInteger)maxNumberOfLines clearBtnMode:(RKOTextFieldViewMode)clearBtnMode;
-
-/**
- 设置提示窗的样式
-
- @param text 提示窗显示文字，不能为NULL。为空则设置无效。
- @param textColor 文字颜色
- @param backgroundColor 提示窗背景颜色
- */
-- (void)alertViewStyleWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor;
 
 /** 提供以下几个样式属性，便于在使用storyboard/xib时设置控件样式 */
 
