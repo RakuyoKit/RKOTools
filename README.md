@@ -29,7 +29,7 @@
 ## RKOControl
 
 下面几个都是封装的一些**小控件**。
-
+---------------------------------------------------------------------
 ### RKONetworkAlert
 
 无网络时提醒的一个`Alert`小控件。接口部分非常简单，提供7个**宏定义**，用以修改`Alert`的尺寸以及持续时间。
@@ -56,7 +56,7 @@
 ```
 
 方法内部采用`UIButton`实现，并使用**单例模式**设计。
-
+---------------------------------------------------------------------
 ### RKOCell
 
 从`xib`或者自定义`Cell`中快速获取`Cell`的一个小工具。接口如下所示：
@@ -90,7 +90,7 @@
 
 @end
 ```
-
+---------------------------------------------------------------------
 ### RKOTextView
 
 一个**近乎完美**的`UITextView`封装~~（肯定还有会有一些bug）~~
@@ -186,7 +186,7 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
     RKOTextFieldViewModeAlways
 };
 ```
-
+---------------------------------------------------------------------
 ### RKOTopAlert
 
 自定义一个顶端的`Alert`提示窗。弹出时从顶端向下移动。
@@ -209,7 +209,7 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
 
 ```objc
 // 设置弹窗
-    [RKOTopAlert popAlertViewWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] ackgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
+[RKOTopAlert popAlertViewWithText:@"已达最大字数限制" textColor:[UIColor colorWithRed:0.89 green:0.94 blue:0.95 alpha:1.00] ackgroundColor:[UIColor colorWithRed:0.88 green:0.25 blue:0.35 alpha:1.00]];
 ```
 
 #### 接口
@@ -224,19 +224,17 @@ typedef NS_ENUM(NSInteger, RKOTextFieldViewMode) {
  @param textColor 文字颜色
  @param backgroundColor 提示窗背景颜色
  */
-//- (void)alertViewStyleWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor;
-
 + (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor;
 ```
-
+---------------------------------------------------------------------
 ### RKOTabBar
 
 封装的一个`TabBar`，但是效果并是很好....想了想还是不放在这里了，几乎用不到，每次都要删除怪麻烦的。
-
+---------------------------------------------------------------------
 ## RKOTools
 
 这里是一些平时使用的一些**工具类**。
-
+---------------------------------------------------------------------
 ### NetWorkTool
 
 自定义封装的`AFNetworking`。初学乍道还不是很完善。
@@ -408,18 +406,17 @@ UIKIT_EXTERN NSString * const baseURL;
 ```
 
 遵守该协议并实现`networkStaAlertWithNetWorkTool:`方法，即可设置在无网络时的弹窗提示。
-
-
+---------------------------------------------------------------------
 ### CloseKeyBoard
 
 `UITableView`的分类，点击空白处关闭键盘的小工具。在需要的地方引入头文件即可
 <br><br>转载自简书：<br>
 [iOS利用响应链机制点击tableview空白处关闭键盘](http://www.jianshu.com/p/9717b792599c)**评论中**的**鱼鱼鱼四只鱼**提供的代码。
-
+---------------------------------------------------------------------
 ### CollecionLog
 
 `NSDictionary`和`NSArray`的分类，拼接字符串，解决字典和数组中输出中文的时候是`unicode`编码的问题
-
+---------------------------------------------------------------------
 ### TopViewController
 
 `UIViewController`的分类，用来获取当前界面真在显示的`ViewController`，接口部分如下所示：
@@ -433,7 +430,7 @@ UIKIT_EXTERN NSString * const baseURL;
 ```
 
 在需要的地方导入头文件，调用`topViewController`方法即可。
-
+---------------------------------------------------------------------
 ### CALayer+Additions
 
 `CALayer`的分类，方便在`StoryBoard`中**设置边框颜色**。如下所示提供一个属性`borderUIColor`：
@@ -447,11 +444,11 @@ UIKIT_EXTERN NSString * const baseURL;
 ```
 
 使用时在`StroyBoard`中添加`borderUIColor`属性即可设置边框颜色。
-
+---------------------------------------------------------------------
 ### FastFrame
 
 **因其与**`Masonry`**冲突，故从库中删除**。如果您有需要，可查找`1.1.0`版本的历史记录，查看相关代码与记录在`README`文件中的API说明。
-
+---------------------------------------------------------------------
 ## BLOG
 
 本人课余时间利用`HEXO`在GitHub上搭建的博客。未来部分工具会有对应的blog文章对应。在这里也把blog的地址贴出来吧：<br><br>

@@ -17,8 +17,6 @@
  @param textColor 文字颜色
  @param backgroundColor 提示窗背景颜色
  */
-//- (void)alertViewStyleWithText:(NSString *)text textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor;
-
 + (void)popAlertViewWithText:(NSString *)text textColor:(UIColor *)textColor ackgroundColor:(UIColor *)backgroundColor;
 
 @end
