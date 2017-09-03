@@ -103,20 +103,6 @@
     self.enablesReturnKeyAutomatically = YES;
 }
 
-#pragma mark 懒加载控件
-
-
-// 懒加载清除按钮
-//- (UIButton *)clearBtn {
-//
-//    if (!_clearBtn && _clearBtnMode != RKOTextFieldViewModeNever) {
-//        // 初始化清除按钮。
-//        NSLog(@"2");
-//
-//    }
-//    return _clearBtn;
-//}
-
 #pragma mark - 系统方法
 // 绘制TextView边框
 - (void)drawRect:(CGRect)rect {
@@ -451,12 +437,12 @@
     
     // 图片路径
     // 为通过copy文件夹方式获取图片路径的宏
-#define kZLPhotoBrowserSrcName(file) [@"ClearBtnImg.bundle" stringByAppendingPathComponent:file]
+#define RKOTextViewSrcName(file) [@"ClearBtnImg.bundle" stringByAppendingPathComponent:file]
     // 为通过cocoapods下载安装获取图片路径的宏
-#define kZLPhotoBrowserFrameworkSrcName(file) [@"Frameworks/RKOTools.framework/ClearBtnImg.bundle" stringByAppendingPathComponent:file]
+#define RKOTextViewFrameworkSrcName(file) [@"Frameworks/RKOTools.framework/ClearBtnImg.bundle" stringByAppendingPathComponent:file]
     
     // 设置图片
-    UIImage *img = [UIImage imageNamed:kZLPhotoBrowserSrcName(@"clear_btn_RKOTextView.png")]?:[UIImage imageNamed:kZLPhotoBrowserFrameworkSrcName(@"clear_btn_RKOTextView.png")];
+    UIImage *img = [UIImage imageNamed:RKOTextViewSrcName(@"clear_btn_RKOTextView.png")]?:[UIImage imageNamed:RKOTextViewFrameworkSrcName(@"clear_btn_RKOTextView.png")];
     self.imgSize = img.size;
     [self.clearBtn setImage:img forState:UIControlStateNormal];
     
