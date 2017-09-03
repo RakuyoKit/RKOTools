@@ -85,6 +85,13 @@
 
 - (void)setUp {
     
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
+    self.attributedText = [[NSAttributedString alloc]initWithString:self.text attributes:attributes];
+    
+    
     // 设置TextView默认字体大小。修改该大小可以一并修改占位符文字的大小。
     self.font = [UIFont systemFontOfSize:18];
     // 默认为白色背景
@@ -466,6 +473,11 @@
     
     // 隐藏清除按钮，显示占位符，更新高度。
     [self judgmentSubviewsDisplayed:self];
+    
+    // 提供代理，供用户监听输入
+    if (self.textViewDelegate && [self.textViewDelegate respondsToSelector:@selector(textViewDidChange:)]) {
+        [self.textViewDelegate textViewDidChange:self];
+    }
 }
 
 - (void)layoutClearButton {
