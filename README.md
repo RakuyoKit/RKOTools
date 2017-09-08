@@ -13,7 +13,6 @@
 
 ## 目录
 
-
 1. [RKOTools](#rkotools-1)
     1. [RKOCell](#rkocell)
     2. [NetWorkTool](#networktool)
@@ -33,6 +32,12 @@
 ## RKOTools
 
 这里是一些平时使用的一些**工具类**。
+
+### 使用
+
+```shell
+ pod 'RKOTools', '~> 1.4.0'
+```
 
 ---------------------------------------------------------------------
 
@@ -314,13 +319,58 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### RKONetworkAlert
 
+<p align="center">
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
+<a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+</p>
+
+[RKONetworkAlert](https://github.com/rakuyoMo/RKOControls/tree/master/RKONetworkAlertManager)
+
+#### 使用：
+
+```shell
+ pod 'RKONetworkAlert', '~> 1.0.0'
+```
+
 ---------------------------------------------------------------------
 
 ### RKOTextView
 
+<p align="center">
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
+<a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+</p>
+
+[RKOTextView](https://github.com/rakuyoMo/RKOControls/tree/master/RKOTextViewManager)
+
+#### 使用：
+
+```shell
+ pod 'RKOTextView', '~> 1.0.0'
+```
+
 ---------------------------------------------------------------------
 
 ### RKOTopAlert
+
+<p align="center">
+<a href=""><img src="https://img.shields.io/badge/pod-v1.0.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
+<a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+</p>
+
+[RKOTopAlert](https://github.com/rakuyoMo/RKOControls/tree/master/RKOTopAlertManager)
+
+#### 使用：
+
+```shell
+ pod 'RKOTopAlert', '~> 1.0.0'
+```
 
 ---------------------------------------------------------------------
 
