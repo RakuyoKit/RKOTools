@@ -28,26 +28,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
 
-  # s.subspec 'RKOControl' do |control|
-
-  # 	control.subspec 'RKONetworkAlert' do |networkAlert|
-
-  # 		networkAlert.source_files  = "RKOTools/RKOControl/RKONetworkAlert/*.{h,m}"
-  # 	end
-
-  #   control.subspec 'RKOTextView' do |textView|
-
-  #     textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
-  #     textView.resources = "RKOTools/RKOControl/RKOTextView/*.{png,xib,nib,bundle}"
-  #   end
-
-  #   control.subspec 'RKOTopAlert' do |topAlert|
-
-  #     topAlert.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
-  #   end
-
-  # end
-
     s.subspec 'RKOCell' do |cell|
 
       cell.source_files  = "RKOTools/RKOCell/*.{h,m}"
