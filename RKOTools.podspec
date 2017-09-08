@@ -58,33 +58,33 @@ Pod::Spec.new do |s|
 
   	s.subspec 'CALayer+Additions' do |additions|
 
-  		additions.source_files  = "RKOTools/RKOHelper/CALayer+Additions/*.{h,m}"
+  		additions.source_files  = "RKOTools/CALayer+Additions/*.{h,m}"
   	end
 
   	s.subspec 'CloseKeyBoard' do |closeKeyBoard|
 
-  		closeKeyBoard.source_files  = "RKOTools/RKOHelper/CloseKeyBoard/*.{h,m}"
+  		closeKeyBoard.source_files  = "RKOTools/CloseKeyBoard/*.{h,m}"
   	end
 
   	s.subspec 'CollecionLog' do |collec􏰂ionLog|
 
-  		collec􏰂ionLog.source_files  = "RKOTools/RKOHelper/CollecionLog/*.{h,m}"
+  		collec􏰂ionLog.source_files  = "RKOTools/CollecionLog/*.{h,m}"
   	end
 
   	s.subspec 'NetWorkTool' do |netWorkTool|
 
-  		netWorkTool.source_files  = "RKOTools/RKOHelper/NetWorkTool/*.{h,m}"
+  		netWorkTool.source_files  = "RKOTools/NetWorkTool/*.{h,m}"
   		netWorkTool.dependency "AFNetworking", '~> 3.0'
   	end
 
   	s.subspec 'TopViewController' do |topViewController|
 
-  		topViewController.source_files  = "RKOTools/RKOHelper/TopViewController/*.{h,m}"
+  		topViewController.source_files  = "RKOTools/TopViewController/*.{h,m}"
   	end
 
     s.subspec 'ImageWithColor' do |imageWithColor|
 
-      imageWithColor.source_files  = "RKOTools/RKOHelper/ImageWithColor/*.{h,m}"
+      imageWithColor.source_files  = "RKOTools/ImageWithColor/*.{h,m}"
     end
 
   # end
