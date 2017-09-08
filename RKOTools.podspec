@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.3.3"
+  s.version      = "1.3.4"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -28,60 +28,65 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
 
-  s.subspec 'RKOControl' do |control|
+  # s.subspec 'RKOControl' do |control|
 
-  	control.subspec 'RKOCell' do |cell|
+  # 	control.subspec 'RKOCell' do |cell|
 
-  		cell.source_files  = "RKOTools/RKOControl/RKOCell/*.{h,m}"
-  	end
+  # 		cell.source_files  = "RKOTools/RKOControl/RKOCell/*.{h,m}"
+  # 	end
 
-  	control.subspec 'RKONetworkAlert' do |networkAlert|
+  # 	control.subspec 'RKONetworkAlert' do |networkAlert|
 
-  		networkAlert.source_files  = "RKOTools/RKOControl/RKONetworkAlert/*.{h,m}"
-  	end
+  # 		networkAlert.source_files  = "RKOTools/RKOControl/RKONetworkAlert/*.{h,m}"
+  # 	end
 
-    control.subspec 'RKOTextView' do |textView|
+  #   control.subspec 'RKOTextView' do |textView|
 
-      textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
-      textView.resources = "RKOTools/RKOControl/RKOTextView/*.{png,xib,nib,bundle}"
-    end
+  #     textView.source_files  = "RKOTools/RKOControl/RKOTextView/*.{h,m}"
+  #     textView.resources = "RKOTools/RKOControl/RKOTextView/*.{png,xib,nib,bundle}"
+  #   end
 
-    control.subspec 'RKOTopAlert' do |topAlert|
+  #   control.subspec 'RKOTopAlert' do |topAlert|
 
-      topAlert.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
-    end
+  #     topAlert.source_files  = "RKOTools/RKOControl/RKOTopAlert/*.{h,m}"
+  #   end
 
-  end
+  # end
 
 
-  s.subspec 'RKOHelper' do |helper|
+  # s.subspec 'RKOHelper' do |helper|
 
-  	helper.subspec 'CALayer+Additions' do |additions|
+  	s.subspec 'CALayer+Additions' do |additions|
 
   		additions.source_files  = "RKOTools/RKOHelper/CALayer+Additions/*.{h,m}"
   	end
 
-  	helper.subspec 'CloseKeyBoard' do |closeKeyBoard|
+  	s.subspec 'CloseKeyBoard' do |closeKeyBoard|
 
   		closeKeyBoard.source_files  = "RKOTools/RKOHelper/CloseKeyBoard/*.{h,m}"
   	end
 
-  	helper.subspec 'CollecionLog' do |collec􏰂ionLog|
+  	s.subspec 'CollecionLog' do |collec􏰂ionLog|
 
   		collec􏰂ionLog.source_files  = "RKOTools/RKOHelper/CollecionLog/*.{h,m}"
   	end
 
-  	helper.subspec 'NetWorkTool' do |netWorkTool|
+  	s.subspec 'NetWorkTool' do |netWorkTool|
 
   		netWorkTool.source_files  = "RKOTools/RKOHelper/NetWorkTool/*.{h,m}"
   		netWorkTool.dependency "AFNetworking", '~> 3.0'
   	end
 
-  	helper.subspec 'TopViewController' do |topViewController|
+  	s.subspec 'TopViewController' do |topViewController|
 
   		topViewController.source_files  = "RKOTools/RKOHelper/TopViewController/*.{h,m}"
   	end
 
-  end
+    s.subspec 'ImageWithColor' do |imageWithColor|
+
+      imageWithColor.source_files  = "RKOTools/RKOHelper/ImageWithColor/*.{h,m}"
+    end
+
+  # end
 
 end
