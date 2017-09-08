@@ -29,7 +29,7 @@
 
 这里是一些平时使用的一些**工具类**。
 
-### 使用
+### 集成：
 
 ```shell
  pod 'RKOTools', '~> 1.4.0'
@@ -326,7 +326,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 地址：[RKONetworkAlert](https://github.com/rakuyoMo/RKOControls/tree/master/RKONetworkAlertManager)
 
-#### 使用：
+#### 集成：
 
 ```shell
  pod 'RKONetworkAlert', '~> 1.0.0'
@@ -345,7 +345,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 地址：[RKOTextView](https://github.com/rakuyoMo/RKOControls/tree/master/RKOTextViewManager)
 
-#### 使用：
+#### 集成：
 
 ```shell
  pod 'RKOTextView', '~> 1.0.0'
@@ -364,7 +364,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 地址：[RKOTopAlert](https://github.com/rakuyoMo/RKOControls/tree/master/RKOTopAlertManager)
 
-#### 使用：
+#### 集成：
 
 ```shell
  pod 'RKOTopAlert', '~> 1.0.0'
