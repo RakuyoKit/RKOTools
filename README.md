@@ -23,10 +23,6 @@
     7. [ImageWithColor](#imagewithcolor)
     8. [~~FastFrame~~](#fastframe)
 2. [RKOControl](#rkocontrol)
-    1. [RKONetworkAlert](#rkonetworkalert)
-    2. [RKOTextView](#rkotextview) 
-    3. [RKOTopAlert](#rkotopalert)
-    4. [~~RKOTabBar~~](#rkotabbar)
 3. [BLOG](#blog)
 
 ## RKOTools
@@ -312,6 +308,8 @@ UIKIT_EXTERN NSString * const baseURL;
 ---------------------------------------------------------------------
 
 ## RKOControl
+
+安利一下自己写的另外一个控件库。原本和`RKOTools`在一个库下，后来觉得有点冗余所以分成了两个库。
 
 下面几个都是封装的一些**小控件**。具体介绍不再在该页面提供，请点击对应的**Github**页面查看。
 
