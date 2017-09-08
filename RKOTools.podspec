@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.3.4"
+  s.version      = "1.4.0"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -30,11 +30,6 @@ Pod::Spec.new do |s|
 
   # s.subspec 'RKOControl' do |control|
 
-  # 	control.subspec 'RKOCell' do |cell|
-
-  # 		cell.source_files  = "RKOTools/RKOControl/RKOCell/*.{h,m}"
-  # 	end
-
   # 	control.subspec 'RKONetworkAlert' do |networkAlert|
 
   # 		networkAlert.source_files  = "RKOTools/RKOControl/RKONetworkAlert/*.{h,m}"
@@ -53,8 +48,10 @@ Pod::Spec.new do |s|
 
   # end
 
+    s.subspec 'RKOCell' do |cell|
 
-  # s.subspec 'RKOHelper' do |helper|
+      cell.source_files  = "RKOTools/RKOCell/*.{h,m}"
+    end
 
   	s.subspec 'CALayer+Additions' do |additions|
 
@@ -86,7 +83,5 @@ Pod::Spec.new do |s|
 
       imageWithColor.source_files  = "RKOTools/ImageWithColor/*.{h,m}"
     end
-
-  # end
 
 end

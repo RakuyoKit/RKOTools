@@ -2,10 +2,10 @@
 
 自己平时写的一个小工具库，上传到**GitHub**中且支持`CocoaPods`，方便自己使用。不断更新完善中。
 
-**注意：**`1.3.4`之前的版本集成了自己写的一些控件，从`1.3.4`版本开始，这些控件不再集成到`RKOTools`库中了，将会单独提供并支持`CocoaPods`。该页面则做目录之用，将会列出所有控件。
+**注意：**`1.4.0`之前的版本集成了自己写的一些控件，从`1.4.0`版本开始，这些控件不再集成到`RKOTools`库中了，将会单独提供并支持`CocoaPods`。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.3.4-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.4.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -15,24 +15,56 @@
 
 
 1. [RKOTools](#rkotools-1)
-    1. [NetWorkTool](#networktool)
-    2. [CloseKeyBoard](#closekeyboard)
-    3. [CollecionLog](#collecionlog)
-    4. [TopViewController](#topviewcontroller)
-    5. [CALayer+Additions](#calayeradditions)
-    6. [ImageWithColor](#imagewithcolor)
-    7. [~~FastFrame~~](#fastframe)
+    1. [RKOCell](#rkocell)
+    2. [NetWorkTool](#networktool)
+    3. [CloseKeyBoard](#closekeyboard)
+    4. [CollecionLog](#collecionlog)
+    5. [TopViewController](#topviewcontroller)
+    6. [CALayer+Additions](#calayeradditions)
+    7. [ImageWithColor](#imagewithcolor)
+    8. [~~FastFrame~~](#fastframe)
 2. [RKOControl](#rkocontrol)
     1. [RKONetworkAlert](#rkonetworkalert)
-    2. [RKOCell](#rkocell)
-    3. [RKOTextView](#rkotextview) 
-    4. [RKOTopAlert](#rkotopalert)
-    5. [~~RKOTabBar~~](#rkotabbar)
+    2. [RKOTextView](#rkotextview) 
+    3. [RKOTopAlert](#rkotopalert)
+    4. [~~RKOTabBar~~](#rkotabbar)
 3. [BLOG](#blog)
 
 ## RKOTools
 
 这里是一些平时使用的一些**工具类**。
+
+---------------------------------------------------------------------
+
+### RKOCell
+
+从`xib`或者自定义`Cell`中快速获取`Cell`的一个小工具。接口如下所示：
+
+```objc
+/**
+ 快速获取 cell
+
+ @param tableView 当前的tableView
+ @return 一个普通的cell
+ */
++ (instancetype)cell:(UITableView *)tableView;
+
+/**
+ 从xib中获取cell
+
+ @param tableView 当前的tableView
+ @return 从xib中获取到的cell
+ */
++ (instancetype)xibCell:(UITableView *)tableView;
+
+/**
+ 获取一个空白的cell
+
+ @param tableView 当前的tableView
+ @return 一个空白的cell
+ */
++ (id)blankCell:(UITableView *)tableView;
+```
 
 ---------------------------------------------------------------------
 
@@ -281,10 +313,6 @@ UIKIT_EXTERN NSString * const baseURL;
 ---------------------------------------------------------------------
 
 ### RKONetworkAlert
-
----------------------------------------------------------------------
-
-### RKOCell
 
 ---------------------------------------------------------------------
 
