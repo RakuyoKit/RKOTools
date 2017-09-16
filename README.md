@@ -301,6 +301,13 @@ UIKIT_EXTERN NSString * const baseURL;
 在`StoryBoard`中如下所示：
 
 ![](https://github.com/rakuyoMo/RKOTools/raw/master/READMEImage/WX20170916-211920@2x.png)
+
+- 注意：如果您有如下警告，请在`podfile`文件中添加`use_frameworks!`语句
+
+```shell
+IB Designables: Failed to render and update auto layout status for WANBaseVi....
+```
+
 ---------------------------------------------------------------------
 
 ### ImageWithColor
