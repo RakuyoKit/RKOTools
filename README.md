@@ -300,7 +300,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 在`StoryBoard`中如下所示：
 
-![StoryBoard预览](http://github.com/rakuyoMo/RKOTools/raw/master/READMEImage/WX20170916-211920@2x.png)
+![](https://github.com/rakuyoMo/RKOTools/raw/master/READMEImage/WX20170916-211920@2x.png)
 ---------------------------------------------------------------------
 
 ### ImageWithColor
