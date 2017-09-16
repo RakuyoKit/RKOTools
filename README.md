@@ -5,7 +5,7 @@
 **注意：**`1.4.0`之前的版本集成了自己写的一些控件，从`1.4.0`版本开始，这些控件不再集成到`RKOTools`库中了，将会单独提供并支持`CocoaPods`。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.4.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.4.1-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -19,7 +19,7 @@
     3. [CloseKeyBoard](#closekeyboard)
     4. [CollecionLog](#collecionlog)
     5. [TopViewController](#topviewcontroller)
-    6. [CALayer+Additions](#calayeradditions)
+    6. [UIView+StoryBoard](#uiviewstoryboard)
     7. [ImageWithColor](#imagewithcolor)
     8. [~~FastFrame~~](#fastframe)
 2. [RKOControl](#rkocontrol)
@@ -273,20 +273,34 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ---------------------------------------------------------------------
 
-### CALayer+Additions
+### UIView+StoryBoard
 
-`CALayer`的分类，方便在`StoryBoard`中**设置边框颜色**。如下所示提供一个属性`borderUIColor`：
+原先 `CALayer+Additions`的代替品。
+
+`UIView`的分类。使用`IB_DESIGNABLE`及`IBInspectable`，可以在`StoryBoard`中快速设置视图**圆角**、**边框**以及**阴影**。
+
+并且提供一个空白的`UIView`子类`RKOBaseStoryBoardView`，如果您在`StoryBoard`中的空白`UIView`需要**所见即所得**，那么可以选择关联到该类上。
+
+具体来说我们提供的属性如下：
 
 ```objc
-@interface CALayer (Additions)
+/** 圆角。 */
+@property(nonatomic,assign) IBInspectable CGFloat cornerRadius;
 
-@property (nonatomic, strong)UIColor *borderUIColor;
+/** 边框宽度和颜色。 */
+@property(nonatomic,assign) IBInspectable CGFloat borderWidth;
+@property(nonatomic,strong) IBInspectable UIColor *borderColor;
 
-@end
+/** 阴影。 */
+@property(nonatomic,assign) IBInspectable float shadowOpacity;
+@property(nonatomic,strong) IBInspectable UIColor *shadowColor;
+@property(nonatomic,assign) IBInspectable CGFloat shadowRadius;
+@property(nonatomic,assign) IBInspectable CGSize shadowOffset;
 ```
 
-使用时在`StroyBoard`中添加`borderUIColor`属性即可设置边框颜色。
+在`StoryBoard`中如下所示：
 
+![StoryBoard预览](http://github.com/rakuyoMo/RKOTools/raw/master/READMEImage/WX20170916-211920@2x.png)
 ---------------------------------------------------------------------
 
 ### ImageWithColor

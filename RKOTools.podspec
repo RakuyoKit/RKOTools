@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.4.0"
+  s.version      = "1.4.1"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -33,9 +33,9 @@ Pod::Spec.new do |s|
       cell.source_files  = "RKOTools/RKOCell/*.{h,m}"
     end
 
-  	s.subspec 'CALayer+Additions' do |additions|
+  	s.subspec 'UIView+StoryBoard' do |storyboard|
 
-  		additions.source_files  = "RKOTools/CALayer+Additions/*.{h,m}"
+  		storyboard.source_files  = "RKOTools/UIView+StoryBoard/*.{h,m}"
   	end
 
   	s.subspec 'CloseKeyBoard' do |closeKeyBoard|
