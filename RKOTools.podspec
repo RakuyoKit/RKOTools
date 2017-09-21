@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.4.1"
+  s.version      = "1.4.2"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries

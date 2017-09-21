@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-IB_DESIGNABLE
+//IB_DESIGNABLE // iOS 11 中OC依然没有修复这个宏的bug，所以还是注释掉吧
 
 /** 方便在StoryBoard中为UIView设置样式属性。 */
 @interface UIView (StoryBoard)

@@ -5,7 +5,7 @@
 **注意：**`1.4.0`之前的版本集成了自己写的一些控件，从`1.4.0`版本开始，这些控件不再集成到`RKOTools`库中了，将会单独提供并支持`CocoaPods`。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.4.1-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.4.2-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -277,9 +277,9 @@ UIKIT_EXTERN NSString * const baseURL;
 
 原先 `CALayer+Additions`的代替品。
 
-`UIView`的分类。使用`IB_DESIGNABLE`及`IBInspectable`，可以在`StoryBoard`中快速设置视图**圆角**、**边框**以及**阴影**。
+`UIView`的分类。使用~~`IB_DESIGNABLE`及~~`IBInspectable`，可以在`StoryBoard`中快速设置视图**圆角**、**边框**以及**阴影**。
 
-并且提供一个空白的`UIView`子类`RKOBaseStoryBoardView`，如果您在`StoryBoard`中的空白`UIView`需要**所见即所得**，那么可以选择关联到该类上。
+~~并且提供一个空白的`UIView`子类`RKOBaseStoryBoardView`，如果您在`StoryBoard`中的空白`UIView`需要**所见即所得**，那么可以选择关联到该类上。~~
 
 具体来说我们提供的属性如下：
 
@@ -302,11 +302,13 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ![](https://github.com/rakuyoMo/RKOTools/raw/master/READMEImage/WX20170916-211920@2x.png)
 
-- 注意：如果您有如下警告，请在`podfile`文件中添加`use_frameworks!`语句
+~~- 注意：如果您有如下警告，请在`podfile`文件中添加`use_frameworks!`语句~~
 
 ```shell
-IB Designables: Failed to render and update auto layout status for WANBaseVi....
+# IB Designables: Failed to render and update auto layout status for WANBaseVi....
 ```
+
+- **注意：** 在 `Xcode 9` 以及 `iOS 11` 中， `IB_DESIGNABLE` 宏在 `Objective-C` 中依然存在bug，且暂时无法修复，故该控件还是放弃使用了这个宏。其衍生基类暂时保存。
 
 ---------------------------------------------------------------------
 
