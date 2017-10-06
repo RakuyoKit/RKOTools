@@ -1,11 +1,11 @@
 # RKOTools
 
-自己平时写的一个小工具库，上传到**GitHub**中且支持`CocoaPods`，方便自己使用。不断更新完善中。
+自己平时写的一个小工具库，上传到 **GitHub** 中且支持 `CocoaPods` ，方便自己使用。不断更新完善中。
 
-**注意：**`1.4.0`之前的版本集成了自己写的一些控件，从`1.4.0`版本开始，这些控件不再集成到`RKOTools`库中了，将会单独提供并支持`CocoaPods`。该页面则做目录之用，将会列出所有控件。
+**注意：** `1.4.0` 之前的版本集成了自己写的一些控件，从 `1.4.0` 版本开始，这些控件不再集成到 `RKOTools` 库中了，将会单独提供并支持 `CocoaPods` 。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.4.2-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.4.3-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -21,7 +21,8 @@
     5. [TopViewController](#topviewcontroller)
     6. [UIView+StoryBoard](#uiviewstoryboard)
     7. [ImageWithColor](#imagewithcolor)
-    8. [~~FastFrame~~](#fastframe)
+    8. [DebugDescription](#debugdescription)
+    9. [~~FastFrame~~](#fastframe)
 2. [RKOControl](#rkocontrol)
 3. [BLOG](#blog)
 
@@ -32,14 +33,14 @@
 ### 集成：
 
 ```shell
- pod 'RKOTools', '~> 1.4.2'
+ pod 'RKOTools', '~> 1.4.3'
 ```
 
 ---------------------------------------------------------------------
 
 ### RKOCell
 
-从`xib`或者自定义`Cell`中快速获取`Cell`的一个小工具。接口如下所示：
+从 `xib` 或者自定义 `Cell` 中快速获取 `Cell` 的一个小工具。接口如下所示：
 
 ```objc
 /**
@@ -71,7 +72,7 @@
 
 ### NetWorkTool
 
-自定义封装的`AFNetworking`。初学乍道还不是很完善。
+自定义封装的 `AFNetworking` 。初学乍道还不是很完善。
 
 <br>接口提供如下几个**宏定义**：
 
@@ -94,9 +95,9 @@ UIKIT_EXTERN NSString * const diskPath;
 UIKIT_EXTERN NSString * const baseURL;
 ```
 
-- 注意：在`RKONetWorkTool.h`文件中，为了避免添加到CocoaPods不通过，对`diskPath`和`baseURL`进行了定义。在您使用的时候建议进行删除，将定义写在您的代码中。
+- 注意：在 `RKONetWorkTool.h` 文件中，为了避免添加到CocoaPods不通过，对 `diskPath` 和 `baseURL` 进行了定义。在您使用的时候建议进行删除，将定义写在您的代码中。
 
-<br>`RKONetWorkTool`提供7个方法，声明如下：
+<br> `RKONetWorkTool` 提供7个方法，声明如下：
 
 **POST方法：**
 ```objc
@@ -224,7 +225,7 @@ UIKIT_EXTERN NSString * const baseURL;
 + (instancetype)sharedManager;
 ```
 
-提供一个协议`RKONetWorkToolDelegate`，协议声明如下：
+提供一个协议 `RKONetWorkToolDelegate` ，协议声明如下：
 
 ```objc
 /**
@@ -239,13 +240,13 @@ UIKIT_EXTERN NSString * const baseURL;
 @end
 ```
 
-遵守该协议并实现`networkStaAlertWithNetWorkTool:`方法，即可设置在无网络时的弹窗提示。
+遵守该协议并实现 `networkStaAlertWithNetWorkTool:` 方法，即可设置在无网络时的弹窗提示。
 
 ---------------------------------------------------------------------
 
 ### CloseKeyBoard
 
-`UITableView`的分类，点击空白处关闭键盘的小工具。在需要的地方引入头文件即可
+`UITableView` 的分类，点击空白处关闭键盘的小工具。在需要的地方引入头文件即可
 <br><br>转载自简书：<br>
 [iOS利用响应链机制点击tableview空白处关闭键盘](http://www.jianshu.com/p/9717b792599c)**评论中**的**鱼鱼鱼四只鱼**提供的代码。
 
@@ -253,13 +254,13 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### CollecionLog
 
-`NSDictionary`和`NSArray`的分类，拼接字符串，解决字典和数组中输出中文的时候是`unicode`编码的问题
+`NSDictionary` 和 `NSArray` 的分类，拼接字符串，解决字典和数组中输出中文的时候是 `unicode` 编码的问题
 
 ---------------------------------------------------------------------
 
 ### TopViewController
 
-`UIViewController`的分类，用来获取当前界面真在显示的`ViewController`，接口部分如下所示：
+`UIViewController` 的分类，用来获取当前界面真在显示的 `ViewController` ，接口部分如下所示：
 
 ```objc
 @interface UIViewController (RKOTopViewController)
@@ -269,15 +270,15 @@ UIKIT_EXTERN NSString * const baseURL;
 @end
 ```
 
-在需要的地方导入头文件，调用`topViewController`方法即可。
+在需要的地方导入头文件，调用 `topViewController` 方法即可。
 
 ---------------------------------------------------------------------
 
 ### UIView+StoryBoard
 
-原先 `CALayer+Additions`的代替品。
+原先 `CALayer+Additions` 的代替品。
 
-`UIView`的分类。使用~~`IB_DESIGNABLE`及~~`IBInspectable`，可以在`StoryBoard`中快速设置视图**圆角**、**边框**以及**阴影**。
+`UIView` 的分类。使用~~`IB_DESIGNABLE`及~~ `IBInspectable` ，可以在 `StoryBoard` 中快速设置视图**圆角**、**边框**以及**阴影**。
 
 ~~并且提供一个空白的`UIView`子类`RKOBaseStoryBoardView`，如果您在`StoryBoard`中的空白`UIView`需要**所见即所得**，那么可以选择关联到该类上。~~
 
@@ -285,17 +286,17 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ```objc
 /** 圆角。 */
-@property(nonatomic,assign) IBInspectable CGFloat cornerRadius;
+@property (nonatomic,assign) IBInspectable CGFloat cornerRadius;
 
 /** 边框宽度和颜色。 */
-@property(nonatomic,assign) IBInspectable CGFloat borderWidth;
-@property(nonatomic,strong) IBInspectable UIColor *borderColor;
+@property (nonatomic,assign) IBInspectable CGFloat borderWidth;
+@property (nonatomic,strong) IBInspectable UIColor *borderColor;
 
 /** 阴影。 */
-@property(nonatomic,assign) IBInspectable float shadowOpacity;
-@property(nonatomic,strong) IBInspectable UIColor *shadowColor;
-@property(nonatomic,assign) IBInspectable CGFloat shadowRadius;
-@property(nonatomic,assign) IBInspectable CGSize shadowOffset;
+@property (nonatomic,assign) IBInspectable float shadowOpacity;
+@property (nonatomic,strong) IBInspectable UIColor *shadowColor;
+@property (nonatomic,assign) IBInspectable CGFloat shadowRadius;
+@property (nonatomic,assign) IBInspectable CGSize shadowOffset;
 ```
 
 在`StoryBoard`中如下所示：
@@ -314,7 +315,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### ImageWithColor
 
-`UIImage`的分类方法，可以根据某一颜色生成一张图片，方便设置`UIButton`的背景图。
+`UIImage` 的分类方法，可以根据某一颜色生成一张图片，方便设置 `UIButton` 的背景图。
 
 使用时调用下面的方法，传入颜色即可。
 
@@ -324,17 +325,27 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ---------------------------------------------------------------------
 
+### DebugDescription
+
+`NSObject` 的分类。方便我们在使用诸如 `NSLog` 、 `po` 打印模型时，输出其下元素的具体内容而非单一地址。
+
+重写了 `debugDescription` 方法和 `description`。无需调用，集成到项目中就可以直接使用。
+
+参照 [iOS模型打印](http://www.cocoachina.com/ios/20170728/20055.html) 编写。
+
+---------------------------------------------------------------------
+
 ### FastFrame
 
-**因其与**[Masonry](https://github.com/SnapKit/Masonry)**冲突，故从库中删除**。如果您有需要，可查找[1.1.0](https://github.com/rakuyoMo/RKOTools/releases/tag/1.1.0)版本的历史记录，查看相关代码与记录在`README`文件中的API说明。
+**因其与** [Masonry](https://github.com/SnapKit/Masonry) **冲突，故从库中删除**。如果您有需要，可 [点击这里](https://github.com/rakuyoMo/RKOTools/commit/79426847a70577038c93f1d1a95bd887577f13d7) ，查看相关代码与记录在 `README` 文件中的 API 说明。
 
 ---------------------------------------------------------------------
 
 ## RKOControl
 
-安利一下自己写的另外一个控件库。原本和`RKOTools`在一个库下，后来觉得有点冗余所以分成了两个库。
+安利一下自己写的另外一个控件库。原本和 `RKOTools` 在一个库下，后来觉得有点冗余所以分成了两个库。
 
-下面几个都是封装的一些**小控件**。具体介绍不再在该页面提供，请点击对应的**Github**页面查看。
+下面几个都是封装的一些**小控件**。具体介绍不再在该页面提供，请点击对应的 **Github** 页面查看。
 
 ---------------------------------------------------------------------
 
@@ -360,7 +371,7 @@ UIKIT_EXTERN NSString * const baseURL;
 ### RKOTextView
 
 <p align="left">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.0.5-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.1.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -371,7 +382,7 @@ UIKIT_EXTERN NSString * const baseURL;
 #### 集成：
 
 ```shell
- pod 'RKOTextView', '~> 1.0.5'
+ pod 'RKOTextView', '~> 1.1.0'
 ```
 
 ---------------------------------------------------------------------
@@ -397,11 +408,11 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### RKOTabBar
 
-封装的一个`TabBar`，但是效果并是很好....想了想还是不放在这里了，几乎用不到，每次都要删除怪麻烦的。
+封装的一个 `TabBar` ，但是效果并是很好....想了想还是不放在这里了，几乎用不到，每次都要删除怪麻烦的。
 
 ---------------------------------------------------------------------
 
 ## BLOG
 
-本人课余时间利用`HEXO`在GitHub上搭建的博客。未来部分工具会有对应的blog文章对应。在这里也把blog的地址贴出来吧：<br><br>
+本人课余时间利用 `HEXO` 在 GitHub 上搭建的博客。未来部分工具会有对应的 blog 文章对应。在这里也把 blog 的地址贴出来吧：<br><br>
 <a href="https://rakuyomo.github.io" target="_blank">喵喵喵</a>

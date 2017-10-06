@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.4.2"
+  s.version      = "1.4.3"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					One of your own tool libraries
@@ -62,6 +62,11 @@ Pod::Spec.new do |s|
     s.subspec 'ImageWithColor' do |imageWithColor|
 
       imageWithColor.source_files  = "RKOTools/ImageWithColor/*.{h,m}"
+    end
+
+    s.subspec 'DebugDescription' do |debugDescription|
+
+      debugDescription.source_files  = "RKOTools/DebugDescription/*.{h,m}"
     end
 
 end
