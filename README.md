@@ -5,7 +5,7 @@
 **注意：** `1.4.0` 之前的版本集成了自己写的一些控件，从 `1.4.0` 版本开始，这些控件不再集成到 `RKOTools` 库中了，将会单独提供并支持 `CocoaPods` 。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.4.3-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.4.4-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -33,7 +33,7 @@
 ### 集成：
 
 ```shell
- pod 'RKOTools', '~> 1.4.3'
+ pod 'RKOTools', '~> 1.4.4'
 ```
 
 ---------------------------------------------------------------------
@@ -327,9 +327,9 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### DebugDescription
 
-`NSObject` 的分类。方便我们在使用诸如 `NSLog` 、 `po` 打印模型时，输出其下元素的具体内容而非单一地址。
+`NSObject` 的分类。方便我们在使用 `po` 打印模型时，输出其下元素的具体内容而非单一地址。
 
-重写了 `debugDescription` 方法和 `description`。无需调用，集成到项目中就可以直接使用。
+重写了 `debugDescription` 方法。无需调用，集成到项目中就可以直接使用。
 
 参照 [iOS模型打印](http://www.cocoachina.com/ios/20170728/20055.html) 编写。
 

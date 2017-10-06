@@ -11,23 +11,14 @@
 
 @implementation NSObject (DebugDescription)
 
-- (NSString *)description {
-    
-    if ([self isKindOfClass:[NSArray class]]
-        || [self isKindOfClass:[NSDictionary class]]
-        || [self isKindOfClass:[NSNumber class]]
-        || [self isKindOfClass:[NSString class]]) {
-        return self.description;
-    }
-    
-    return [self debugDescription];
-}
-
 - (NSString *)debugDescription {
     if ([self isKindOfClass:[NSArray class]]
         || [self isKindOfClass:[NSDictionary class]]
         || [self isKindOfClass:[NSNumber class]]
-        || [self isKindOfClass:[NSString class]]) {
+        || [self isKindOfClass:[NSString class]]
+        || [self isKindOfClass:[NSError class]]
+        || [self isKindOfClass:[NSURL class]]
+        || [self isKindOfClass:[UIApplication class]]) {
         return self.debugDescription;
     }
     
@@ -55,3 +46,4 @@
 }
 
 @end
+
