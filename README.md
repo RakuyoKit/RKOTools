@@ -401,7 +401,7 @@ UIKIT_EXTERN NSString * const baseURL;
 #### 集成：
 
 ```shell
- pod 'RKOTopAlert', '~> 1.0.4'
+ pod 'RKOTopAlert', '~> 1.0.5'
 ```
 
 ---------------------------------------------------------------------
