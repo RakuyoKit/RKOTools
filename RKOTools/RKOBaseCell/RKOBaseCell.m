@@ -13,7 +13,7 @@
 // 快速获取 cell
 + (instancetype)cell:(UITableView *)tableView {
     NSString *ID = NSStringFromClass(self);
-    RKOCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    RKOBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (!cell) {
         [tableView registerClass:self forCellReuseIdentifier:ID];
@@ -26,7 +26,7 @@
 // 从xib中获取cell
 + (instancetype)xibCell:(UITableView *)tableView {
     NSString *ID = NSStringFromClass(self);
-    RKOCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    RKOBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (!cell) {
         [tableView registerNib:[UINib nibWithNibName:ID bundle:nil] forCellReuseIdentifier:ID];
