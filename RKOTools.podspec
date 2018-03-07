@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.11.0"
+  s.version      = "1.11.1"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
   					Own a tool library.
@@ -84,6 +84,5 @@ Pod::Spec.new do |s|
 
       hexString.source_files  = "RKOTools/HexString/*.{h,m}"
     end
-
 
 end

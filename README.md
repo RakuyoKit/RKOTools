@@ -5,7 +5,7 @@
 **注意：** `1.4.0` 之前的版本集成了自己写的一些控件，从 `1.4.0` 版本开始，这些控件不再集成到 `RKOTools` 库中了，将会单独提供并支持 `CocoaPods` 。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.11.0-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.11.1-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/platform-iOS%209.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
@@ -42,7 +42,7 @@
 ### 集成：
 
 ```shell
- pod 'RKOTools', '~> 1.11.0'
+ pod 'RKOTools', '~> 1.11.1'
 ```
 
 ---------------------------------------------------------------------
