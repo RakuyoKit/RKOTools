@@ -34,7 +34,7 @@
 
 这里是一些平时使用的一些**工具类**。
 
-- 命名规则：
+- 版本号命名规则：
     1. 开头的版本号代表**组织结构**的版本。不修改组织结构的话该编码不变。
     2. 中间的版本号代表库中**可用的组件**数量。
     3. 末尾的版本号代表当前数量下的**修复**版本。
@@ -458,9 +458,9 @@ UIKIT_EXTERN NSString * const baseURL;
 ### RKOTopAlert
 
 <p align="left">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.0.5-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.1.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
-<a href=""><img src="https://img.shields.io/badge/platform-iOS%207.0%2B-ff69b5152950834.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%209.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 </p>
 
@@ -469,7 +469,7 @@ UIKIT_EXTERN NSString * const baseURL;
 #### 集成：
 
 ```shell
- pod 'RKOTopAlert', '~> 1.0.5'
+ pod 'RKOTopAlert', '~> 1.1.0'
 ```
 
 ---------------------------------------------------------------------
