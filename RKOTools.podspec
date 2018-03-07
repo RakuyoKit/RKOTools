@@ -9,33 +9,33 @@
 Pod::Spec.new do |s|
 
   s.name         = "RKOTools"
-  s.version      = "1.4.4"
+  s.version      = "1.11.0"
   s.summary      = "One of your own tool libraries"
   s.description  = <<-DESC
-  					One of your own tool libraries
+  					Own a tool library.
                    DESC
 
   s.homepage     = "https://github.com/rakuyoMo/RKOTools"
 
   s.license      = "MIT"
 
-  s.author             = { "Rakuyo" => "rakuyo.mo@gmail.com" }
+  s.author       = { "Rakuyo" => "rakuyo.mo@gmail.com" }
 
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "9.0"
 
   s.source       = { :git => "https://github.com/rakuyoMo/RKOTools.git", :tag => "#{s.version}" }
 
   s.requires_arc = true
 
 
-    s.subspec 'RKOCell' do |cell|
+    s.subspec 'RKOBaseCell' do |cell|
 
-      cell.source_files  = "RKOTools/RKOCell/*.{h,m}"
+      cell.source_files  = "RKOTools/RKOBaseCell/*.{h,m}"
     end
 
-  	s.subspec 'UIView+StoryBoard' do |storyboard|
+  	s.subspec 'StoryBoardCategory' do |storyboard|
 
-  		storyboard.source_files  = "RKOTools/UIView+StoryBoard/*.{h,m}"
+  		storyboard.source_files  = "RKOTools/StoryBoardCategory/*.{h,m}"
   	end
 
   	s.subspec 'CloseKeyBoard' do |closeKeyBoard|
@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
   	s.subspec 'NetWorkTool' do |netWorkTool|
 
   		netWorkTool.source_files  = "RKOTools/NetWorkTool/*.{h,m}"
-  		netWorkTool.dependency "AFNetworking", '~> 3.0'
+  		netWorkTool.dependency "AFNetworking"
   	end
 
   	s.subspec 'TopViewController' do |topViewController|
@@ -64,9 +64,26 @@ Pod::Spec.new do |s|
       imageWithColor.source_files  = "RKOTools/ImageWithColor/*.{h,m}"
     end
 
-    s.subspec 'DebugDescription' do |debugDescription|
+    s.subspec 'UIViewTools' do |uiViewTools|
 
-      debugDescription.source_files  = "RKOTools/DebugDescription/*.{h,m}"
+      uiViewTools.source_files  = "RKOTools/UIViewTools/*.{h,m}"
     end
+
+    s.subspec 'Rotate' do |rotate|
+
+      rotate.source_files  = "RKOTools/Rotate/*.{h,m}"
+    end
+
+    s.subspec 'RKOBaseModel' do |model|
+
+      model.source_files  = "RKOTools/RKOBaseModel/*.{h,m}"
+      model.dependency "YYModel"
+    end
+
+    s.subspec 'HexString' do |hexString|
+
+      hexString.source_files  = "RKOTools/HexString/*.{h,m}"
+    end
+
 
 end

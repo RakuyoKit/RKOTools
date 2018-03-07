@@ -1,14 +1,14 @@
 //
-//  RKOCell.m
-//  Summary01_Rakuyo
+//  RKOBaseCell.m
+//  RKOTools
 //
 //  Created by Rakuyo on 2017/8/14.
 //  Copyright © 2017年 Rakuyo. All rights reserved.
 //
 
-#import "RKOCell.h"
+#import "RKOBaseCell.h"
 
-@implementation RKOCell
+@implementation RKOBaseCell
 
 // 快速获取 cell
 + (instancetype)cell:(UITableView *)tableView {

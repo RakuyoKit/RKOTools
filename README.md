@@ -5,24 +5,28 @@
 **注意：** `1.4.0` 之前的版本集成了自己写的一些控件，从 `1.4.0` 版本开始，这些控件不再集成到 `RKOTools` 库中了，将会单独提供并支持 `CocoaPods` 。该页面则做目录之用，将会列出所有控件。
 
 <p align="center">
-<a href=""><img src="https://img.shields.io/badge/pod-v1.4.4-brightgreen.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/pod-v1.11.0-brightgreen.svg"></a>
 <a href=""><img src="https://img.shields.io/badge/ObjectiveC-compatible-orange.svg"></a>
-<a href=""><img src="https://img.shields.io/badge/platform-iOS%208.0%2B-ff69b5152950834.svg"></a>
+<a href=""><img src="https://img.shields.io/badge/platform-iOS%209.0%2B-ff69b5152950834.svg"></a>
 <a href="https://github.com/rakuyoMo/RKOTools/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
 </p>
 
 ## 目录
 
 1. [RKOTools](#rkotools-1)
-    1. [RKOCell](#rkocell)
+    1. [RKOBaseCell](#rkobasecell)
     2. [NetWorkTool](#networktool)
     3. [CloseKeyBoard](#closekeyboard)
     4. [CollecionLog](#collecionlog)
     5. [TopViewController](#topviewcontroller)
     6. [UIView+StoryBoard](#uiviewstoryboard)
     7. [ImageWithColor](#imagewithcolor)
-    8. [DebugDescription](#debugdescription)
-    9. [~~FastFrame~~](#fastframe)
+    8. [HexString](#hexstring)
+    9. [Rotate](rotate)
+    10. [UIViewTools](uiviewtools)
+    11. [RKOBaseModel](rkobasemodel)
+    12. [~~DebugDescription~~](#debugdescription)
+    13. [~~FastFrame~~](#fastframe)
 2. [RKOControl](#rkocontrol)
 3. [BLOG](#blog)
 
@@ -30,15 +34,20 @@
 
 这里是一些平时使用的一些**工具类**。
 
+- 命名规则：
+    1. 开头的版本号代表**组织结构**的版本。不修改组织结构的话该编码不变。
+    2. 中间的版本号代表库中**可用的组件**数量。
+    3. 末尾的版本号代表当前数量下的**修复**版本。
+
 ### 集成：
 
 ```shell
- pod 'RKOTools', '~> 1.4.4'
+ pod 'RKOTools', '~> 1.11.0'
 ```
 
 ---------------------------------------------------------------------
 
-### RKOCell
+### RKOBaseCell
 
 从 `xib` 或者自定义 `Cell` 中快速获取 `Cell` 的一个小工具。接口如下所示：
 
@@ -254,7 +263,9 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ### CollecionLog
 
-`NSDictionary` 和 `NSArray` 的分类，拼接字符串，解决字典和数组中输出中文的时候是 `unicode` 编码的问题
+`NSDictionary` 、 `NSArray` 和 `NSSet` 的分类，拼接字符串，解决字典、数组和集合中**输出中文**的时候是 `unicode` 编码的问题。
+
+- **注意**：该类于 `2018/03/07` 有**更新**。
 
 ---------------------------------------------------------------------
 
@@ -317,7 +328,7 @@ UIKIT_EXTERN NSString * const baseURL;
 
 `UIImage` 的分类方法，可以根据某一颜色生成一张图片，方便设置 `UIButton` 的背景图。
 
-使用时调用下面的方法，传入颜色即可。
+使用时调用下面的方法，传入颜色即可：
 
 ```objc
 + (UIImage *)imageWithColor:(UIColor *)color;
@@ -325,13 +336,70 @@ UIKIT_EXTERN NSString * const baseURL;
 
 ---------------------------------------------------------------------
 
+### HexString
+
+`UIColor` 的分类，用于**将十六进制字符串转为数字**。当我们存储颜色值的时候可能会存颜色的十六进制数字，有的时候会以字符串去存，这个时候就用到了这个方法了。
+
+使用时调用下面的方法，传入字符串即可：
+
+```objc
++ (NSInteger)colorWithHexString:(NSString *)hexString;
+```
+
+---------------------------------------------------------------------
+
+### Rotate
+
+`UIImage` 的分类。用于**将图片旋转指定的角度/弧度**。
+
+若需按 **角度** 旋转，可调用该方法：
+
+```objc
+- (UIImage *)imageRotatedByRadians:(CGFloat)radians;
+```
+
+如若按弧度旋转，则调用该方法：
+
+```objc
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+```
+
+---------------------------------------------------------------------
+
+### UIViewTools
+
+`UIView` 的分类。该分类用于集中管理一些 `UIView` 的扩展，但是难以单独分离出来命名的。未来某些组件**可能从该分类中剥离**出来单独成一个分类。
+
+目前该分类提供以下功能：
+
+1. 寻找第一响应者的视图。
+
+
+#### 寻找第一响应者
+
+```objc
+- (UIView *)findFirstResponder;
+```
+
+---------------------------------------------------------------------
+
+### RKOBaseModel
+
+模型基类，集成了 `YYModel`，借由 `YYModel` 实现了 `Coding`、`Copying`、`hash`、`equal` 方法。同时重写了 `description` 方法，用来代替原先的 `DebugDescription` 分类，提供**打印模型时，同时打印属性值**的功能。
+
+使用时只需让您的模型类继承自 `RKOBaseModel` 即可。
+
+---------------------------------------------------------------------
+
 ### DebugDescription
 
-`NSObject` 的分类。方便我们在使用 `po` 打印模型时，输出其下元素的具体内容而非单一地址。
+**因其会导致 po 数组、字典时出现 bug，故从库中删除。现已用 RKOBaseModel 取代。**
 
-重写了 `debugDescription` 方法。无需调用，集成到项目中就可以直接使用。
+~~`NSObject` 的分类。方便我们在使用 `po` 打印模型时，输出其下元素的具体内容而非单一地址。~~
 
-参照 [iOS模型打印](http://www.cocoachina.com/ios/20170728/20055.html) 编写。
+~~重写了 `debugDescription` 方法。无需调用，集成到项目中就可以直接使用。~~
+
+~~参照 [iOS模型打印](http://www.cocoachina.com/ios/20170728/20055.html) 编写。~~
 
 ---------------------------------------------------------------------
 
